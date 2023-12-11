@@ -2,87 +2,20 @@ Dominar o uso de arrays é fundamental para qualquer programador, sendo uma base
 
 Para isso criamos uma lista de exercícios que não apenas ajudam a explorar os métodos de manipulação de arrays, mas também vão te preparar para lidar eficientemente com dados em aplicações reais. 
 
-Slice e Splice em Arrays:
-1)Crie uma função que receba um array e retorne uma cópia dele, mas apenas com os elementos do índice 2 ao índice 4.
-
+1)Crie uma função que receba 3 parâmetros: o nome de um livro, a quantidade de páginas e a autoria. Retorne um objeto no formato: {titulo: "nome do livro", paginas: "número de páginas", autoria: "nome da pessoa"}
 ```
-function sliceArray(arr) {
-    return arr.slice(2, 5); // Retorna os elementos do índice 2 ao 4 (não inclui o índice 5)
+function objLivro(titulo, paginas, autoria) {
+  return ({
+    titulo, // mesma coisa que titulo: titulo
+    paginas,
+    autoria
+  }) // parenteses para retornar o objeto diretamente
 }
 
-const originalArray = [1, 2, 3, 4, 5, 6];
-const slicedArray = sliceArray(originalArray);
-console.log(slicedArray); // Saída: [3, 4, 5]
+console.log(objLivro('Antes do Baile Verde', 234, 'Lygia Fagundes Telles'))
 ```
 
-Concatenação de Arrays:
-2)Crie uma função que receba dois arrays e os concatene em um único array.
-Resolução:
-
-```
-function concatenateArrays(arr1, arr2) {
-    return arr1.concat(arr2); // Concatena os dois arrays
-}
-
-const array1 = [1, 2, 3];
-const array2 = [4, 5, 6];
-const concatenatedArray = concatenateArrays(array1, array2);
-console.log(concatenatedArray); // Saída: [1, 2, 3, 4, 5, 6]
-
-```
-
-Laço de Repetição (for/of):
-3)Escreva um código que utilize o loop for/of para iterar e imprimir cada elemento de um array.
-
-```
-function printArrayElements(arr) {
-    for (let element of arr) {
-        console.log(element); // Imprime cada elemento do array
-    }
-}
-
-const myArray = ['a', 'b', 'c'];
-printArrayElements(myArray);
-// Saída:
-// a
-// b
-// c
-
-
-```
-
-Funções de Callback:
-4)Crie uma função que receba um array e uma função de callback para executar uma operação em cada elemento do array.
-
-```
-function manipulateArray(arr, callback) {
-    return arr.map(callback); // Executa a função de callback em cada elemento do array
-}
-
-function doubleNumber(num) {
-    return num * 2; // Função de exemplo para dobrar o número
-}
-
-const originalNumbers = [1, 2, 3];
-const doubledNumbers = manipulateArray(originalNumbers, doubleNumber);
-console.log(doubledNumbers); // Saída: [2, 4, 6]
-```
-
-Somando Elementos de um Array:
-5)Crie uma função que receba um array de números e retorne a soma de todos os elementos.
-
-```
-function sumArrayElements(arr) {
-    return arr.reduce((acc, curr) => acc + curr, 0); // Soma os elementos do array
-}
-
-const numbers = [1, 2, 3, 4, 5];
-const totalSum = sumArrayElements(numbers);
-console.log(totalSum); // Saída: 15
-```
-
-6)Filtrando Elementos de um Array:
-Escreva uma função que receba um array de números e retorne apenas os números pares.
+2)Escreva uma função que receba um array de números e retorne um array contendo apenas os números pares.
 
 ```
 function filterEvenNumbers(arr) {
@@ -94,51 +27,21 @@ const evenNumbers = filterEvenNumbers(numArray);
 console.log(evenNumbers); // Saída: [2, 4, 6]
 ```
 
-Trabalhando com `forEach`:
 
-7)Utilize o método forEach para imprimir cada elemento de um array juntamente com seu índice.
-
-```
-let numero = 7;
-let resultado = numero % 2 === 0 ? "Par" : "Ímpar";
-console.log(resultado); // Par ou Ímpar
-```
-
-Função Callback e Modificação de Array:
-8)Crie uma função que receba um array de números e aplique uma operação específica a cada elemento, utilizando uma função callback para determinar a operação.
+3)Crie uma função que receba um array de números e retorne a soma de todos os elementos.
 
 ```
-function modifyArray(arr, callback) {
-    return arr.map(callback); // Aplica a função de callback a cada elemento do array
+function sumArrayElements(arr) {
+    return arr.reduce((acc, curr) => acc + curr, 0); // Soma os elementos do array
 }
 
-function squareNumber(num) {
-    return num * num; // Função de exemplo para elevar ao quadrado
-}
-
-const originalNums = [1, 2, 3, 4];
-const squaredNums = modifyArray(originalNums, squareNumber);
-console.log(squaredNums); // Saída: [1, 4, 9, 16]
+const numbers = [1, 2, 3, 4, 5];
+const totalSum = sumArrayElements(numbers);
+console.log(totalSum); // Saída: 15
 ```
 
-Concatenação de Arrays usando Spread Operator:
-9)Faça uma função que aceite vários arrays como argumentos e retorne um único array contendo todos os elementos dos arrays fornecidos.
 
-```
-function concatArrays(...arrays) {
-    return [].concat(...arrays); // Usa o operador spread para concatenar os arrays
-}
-
-const arr1 = [1, 2];
-const arr2 = [3, 4];
-const arr3 = [5, 6];
-const concatenated = concatArrays(arr1, arr2, arr3);
-console.log(concatenated); // Saída: [1, 2, 3, 4, 5, 6]
-```
-
-Filtrando Elementos com mais de uma Condição:
-
-10)Crie uma função que filtre os números de um array que são múltiplos de 3 e maiores que 5.
+4)Crie uma função que filtre os números de um array que são múltiplos de 3 e maiores que 5.
 
 ```
 function filterNumbers(arr) {
@@ -149,3 +52,44 @@ const numbersArray = [3, 6, 9, 4, 12, 2, 7];
 const filteredNumbers = filterNumbers(numbersArray);
 console.log(filteredNumbers); // Saída: [6, 9, 12]
 ```
+
+5)Crie um array vazio chamado `minhaArray` e adicione 3 números inteiros de sua escolha utilizando o método push(). Depois, imprima no console os itens presentes no array para verificar se os números foram adicionados e substitua o primeiro elemento do array (índice 0) pelo dobro do seu valor atual. Imprima no console o array atualizado para verificar a mudança.
+
+```
+let minhaArray = []; // Criando um array vazio
+minhaArray.push(5); // Adicionando números ao array
+minhaArray.push(10);
+minhaArray.push(15);
+
+//Exibição dos Itens
+console.log("Itens no array minhaArray:", minhaArray);
+
+//Atualização de Itens
+minhaArray[0] *= 2; // Dobrando o valor do primeiro elemento
+console.log("Array após a atualização do primeiro elemento:", minhaArray);
+```
+
+ 6) Crie uma função que receba uma array de números inteiros e retorne o menor valor e o maior valor da array, no seguinte formato: "o menor número é X e o maior número é Y".
+```
+const arrMenoresMaiores = [5, 37, 18, 59, 12, -5]
+
+function imprimeMaiorEMenor(arr) {
+
+  let maior = 0
+  let menor = 0
+
+  for(let i = 0; i < arr.length; i++) {
+    if (arr[i] > maior) {
+      maior = arr[i]
+    }
+    if (arr[i] < menor) {
+      menor = arr[i]
+    }
+  }
+  return `o maior número é ${maior} e o menor número é ${menor}`
+}
+
+console.log(imprimeMaiorEMenor(arrMenoresMaiores))
+
+```
+
